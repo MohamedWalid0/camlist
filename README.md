@@ -15,7 +15,7 @@ git clone https://github.com/MohamedWalid0/camlist
 ```
 2- install the dependancies 
 ```
-composer install
+composer update
 ```
 3- create .env file 
 ```
