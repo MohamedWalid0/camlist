@@ -37,6 +37,7 @@ php artisan migrate --seed
 ```
 php artisan test
 ```
+![image](https://user-images.githubusercontent.com/63995557/198702392-2a29652e-4531-4e7b-82db-9b6807c2b3ca.png)
 
 <hr>
 
@@ -99,3 +100,23 @@ php artisan test
 5- Add Bid with empty cost <br>
 6- Add Bid with invalid cost <br>
 7- Listing winners <br>
+
+
+<hr>
+
+## Test On Deployment
+
+1- Allow Users to Bid on certain Pet certain amount of money : <br>
+```http://170.187.200.225/api/{pet}/bids```
+2- Allow pet owner to list all bids : <br>
+```http://170.187.200.225/api/{pet}/bids```
+3- List the winners :<br>
+```http://170.187.200.225/api/{pet}/winners```
+
+
+-- Database tables for test cases (live) ---
+![image](https://user-images.githubusercontent.com/63995557/198702561-b1d46734-dbe3-401d-a643-d45d548dd8f1.png)
+![image](https://user-images.githubusercontent.com/63995557/198702827-68ce9b8c-4517-44ed-8ba7-3bf393060137.png)
+![image](https://user-images.githubusercontent.com/63995557/198702935-213034d5-1c26-486f-9d31-6499c385b820.png)
+
+
