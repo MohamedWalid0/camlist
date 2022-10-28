@@ -34,11 +34,9 @@ class BidService{
             }
 
             return Bid::create([
-
                 'user_id' => $user->id ,
                 'pet_id' => $pet->id ,
                 'cost' => $cost
-
             ]);
             
         });

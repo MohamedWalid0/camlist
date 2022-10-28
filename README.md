@@ -7,60 +7,85 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Installation
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+1- clone the repository
+```
+git clone https://github.com/MohamedWalid0/camlist
+```
+2- install the dependancies 
+```
+composer install
+```
+3- create .env file 
+```
+cp .env.example .env
+```
+4- create new mysql database in local machine <br>
+5- open ```.env``` file and modify the following variables with creadintials
+```
+DB_DATABASE=camlist
+DB_USERNAME=
+DB_PASSWORD=
+```
+6- Migrate the databases
+```
+php artisan migrate --seed
+```
+7- run tests
+```
+php artisan test
+```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<hr>
+## Usage
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1- Allow Users to Bid on certain Pet certain amount of money. <br>
+    - send ```POST``` request to the following endpoint with pet <br>
+    - body : ```
+        {
+            "user_id" : 2  ,
+            "cost" : "4000"
+        } ```
+    - ``` http://127.0.0.1:8001/api/{pet}/bids ```
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+2- Allow pet owner to list all bids. <br>
+    - send ```GET``` request to the following endpoint with pet <br>
+    - body : ```
+        {
+            "user_id" : 2  
+        } ```
+    - ``` http://127.0.0.1:8001/api/{pet}/bids ```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+3- List the winners
+    - send ```GET``` request to the following endpoint with pet <br>
+    - ``` http://127.0.0.1:8001/api/{pet}/winners ```
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-### Premium Partners
+<hr>
+## Documentaion
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
 
-## Contributing
+1- Allow Users to Bid on certain Pet certain amount of money : <br>
+    -  First of all check pet's status is available and the cost is valid and much more the maximum bid on the pet's auction . <br>
+    - Use ```LOCK``` for bids table while bid action .
+    - check if suer already have bid on the same pet before , then update it , else create a new one .<br>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+2- Allow pet owner to list all bids : <br>
+    - Check if the pet's owner is the same user who made the request .<br>
+    - then list the pet's bids . <br>
 
-## Code of Conduct
+3- List the winners :<br>
+    - Frist of all check ge pet's available count and the bidders count. <br>
+    - if no bids then ```no winners!``` .  <br>
+    - if only one bid , then return the only cost for the bid .  <br>
+    - if 2 or more , using ```Generalized second-price auction```  mechanism . <br>
+    - if Tie-breaker: Who comes first in alphabetical order . <br>
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
