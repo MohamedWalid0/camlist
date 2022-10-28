@@ -38,6 +38,7 @@ php artisan test
 ```
 
 <hr>
+
 ## Usage
 
 1- Allow Users to Bid on certain Pet certain amount of money. <br>
@@ -66,6 +67,7 @@ php artisan test
 
 
 <hr>
+
 ## Documentaion
 
 
@@ -86,6 +88,7 @@ php artisan test
     - if Tie-breaker: Who comes first in alphabetical order . <br>
 
 <hr>
+
 ## Test Cases
 
 1- Listing Bids for pet's owner
