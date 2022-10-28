@@ -20,6 +20,7 @@ composer update
 3- create .env file 
 ```
 cp .env.example .env
+php artisan key:generate
 ```
 4- create new mysql database in local machine <br>
 5- open ```.env``` file and modify the following variables with creadintials
