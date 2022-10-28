@@ -107,11 +107,11 @@ php artisan test
 ## Test On Deployment
 
 1- Allow Users to Bid on certain Pet certain amount of money : <br>
-```http://170.187.200.225/api/{pet}/bids```
+```http://170.187.200.225/api/{pet}/bids``` <br>
 2- Allow pet owner to list all bids : <br>
-```http://170.187.200.225/api/{pet}/bids```
+```http://170.187.200.225/api/{pet}/bids``` <br>
 3- List the winners :<br>
-```http://170.187.200.225/api/{pet}/winners```
+```http://170.187.200.225/api/{pet}/winners``` <br>
 
 
 -- Database tables for test cases (live) ---
