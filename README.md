@@ -85,7 +85,13 @@ php artisan test
     - if 2 or more , using ```Generalized second-price auction```  mechanism . <br>
     - if Tie-breaker: Who comes first in alphabetical order . <br>
 
+<hr>
+## Test Cases
 
-
-
-
+1- Listing Bids for pet's owner
+2- Listing Bids for pet's non owner
+3- Add Bid 
+4- Add Bid with invalid pet's status
+5- Add Bid with empty cost
+6- Add Bid with invalid cost
+7- Listing winners
