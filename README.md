@@ -73,7 +73,7 @@ php artisan test
 
 1- Allow Users to Bid on certain Pet certain amount of money : <br>
     -  First of all check pet's status is available and the cost is valid and much more the maximum bid on the pet's auction . <br>
-    - Use ```LOCK``` for bids table while bid action .
+    - Use ```LOCK``` for bids table while bid action .<br>
     - check if suer already have bid on the same pet before , then update it , else create a new one .<br>
 
 2- Allow pet owner to list all bids : <br>
@@ -91,10 +91,10 @@ php artisan test
 
 ## Test Cases
 
-1- Listing Bids for pet's owner
-2- Listing Bids for pet's non owner
-3- Add Bid 
-4- Add Bid with invalid pet's status
-5- Add Bid with empty cost
-6- Add Bid with invalid cost
-7- Listing winners
+1- Listing Bids for pet's owner <br>
+2- Listing Bids for pet's non owner <br>
+3- Add Bid <br>
+4- Add Bid with invalid pet's status <br>
+5- Add Bid with empty cost <br>
+6- Add Bid with invalid cost <br>
+7- Listing winners <br>
